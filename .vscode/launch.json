@@ -24,8 +24,38 @@
     ],
     "configurations": [
         {
-            "name": "Expo: Start Project",
-            "command": "npx expo start${input:platform}",
+            "name": "Expo: Start (Local)",
+            "command": "npm run start:local -- ${input:platform}",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Expo: Start (Production)",
+            "command": "npm run start:prod -- ${input:platform}",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Expo: iOS (Local)",
+            "command": "npm run ios:local",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Expo: iOS (Production)",
+            "command": "npm run ios:prod",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Expo: Android (Local)",
+            "command": "npm run android:local",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Expo: Android (Production)",
+            "command": "npm run android:prod",
             "request": "launch",
             "type": "node-terminal"
         }
