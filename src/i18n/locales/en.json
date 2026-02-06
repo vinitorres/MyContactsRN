@@ -1,0 +1,25 @@
+{
+    "contacts": {
+        "title": "Contacts",
+        "empty": "No contacts found, click the + to add"
+    },
+    "addContact": {
+        "title": "New Contact",
+        "editTitle": "Edit Contact",
+        "name": "Name",
+        "surname": "Surname",
+        "phone": "Phone",
+        "save": "Save Contact",
+        "update": "Update Contact"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": {
+            "title": "Language"
+        },
+        "about": {
+            "title": "About",
+            "version": "Version"
+        }
+    }
+}

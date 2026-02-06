@@ -1,0 +1,25 @@
+{
+    "contacts": {
+        "title": "Contatos",
+        "empty": "Nenhum contato encontrado, clique no + para adicionar"
+    },
+    "addContact": {
+        "title": "Novo Contato",
+        "editTitle": "Editar Contato",
+        "name": "Nome",
+        "surname": "Sobrenome",
+        "phone": "Telefone",
+        "save": "Salvar Contato",
+        "update": "Atualizar Contato"
+    },
+    "settings": {
+        "title": "Ajustes",
+        "language": {
+            "title": "Idioma"
+        },
+        "about": {
+            "title": "Sobre",
+            "version": "Versão"
+        }
+    }
+}

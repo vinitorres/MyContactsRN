@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "inputs": [
+        {
+            "id": "platform",
+            "type": "pickString",
+            "description": "Escolha a plataforma para executar",
+            "options": [
+                {
+                    "label": "Interactive (Decidir no terminal)",
+                    "value": " "
+                },
+                {
+                    "label": "Android Emulator",
+                    "value": " --android"
+                },
+                {
+                    "label": "iOS Simulator",
+                    "value": " --ios"
+                }
+            ],
+            "default": " "
+        }
+    ],
+    "configurations": [
+        {
+            "name": "Expo: Start Project",
+            "command": "npx expo start${input:platform}",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}
