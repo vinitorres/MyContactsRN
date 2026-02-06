@@ -5,7 +5,7 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
+const tintColorLight = '#000';
 const tintColorDark = '#fff';
 
 export const Colors = {
@@ -51,3 +51,34 @@ export const Fonts = Platform.select({
     mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
   },
 });
+
+export const Spacing = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  xxl: 24,
+  huge: 32,
+  giant: 48,
+};
+
+export const Sizes = {
+  borderRadius: {
+    sm: 8,
+    md: 10,
+    lg: 12,
+    xl: 20,
+    round: 999,
+  },
+  header: 44,
+  input: 50,
+  fab: 56,
+  icon: {
+    sm: 20,
+    md: 24,
+    lg: 32,
+    xl: 40,
+  },
+};
+

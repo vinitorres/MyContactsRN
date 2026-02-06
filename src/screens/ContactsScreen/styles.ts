@@ -1,3 +1,4 @@
+import { Sizes, Spacing } from '@/constants/theme';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -8,23 +9,23 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        paddingVertical: 12,
+        paddingHorizontal: Spacing.lg,
+        paddingVertical: Spacing.md,
     },
     headerTitle: {
         flex: 1,
         textAlign: 'center',
     },
     listContent: {
-        padding: 16,
+        padding: Spacing.lg,
         paddingBottom: 80, // Add padding to bottom to avoid FAB overlap
     },
     itemContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16,
-        marginBottom: 12,
-        borderRadius: 12,
+        padding: Spacing.lg,
+        marginBottom: Spacing.md,
+        borderRadius: Sizes.borderRadius.lg,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -35,21 +36,21 @@ export const styles = StyleSheet.create({
         elevation: 2,
     },
     avatar: {
-        marginRight: 16,
+        marginRight: Spacing.lg,
     },
     contactDetail: {
-        marginTop: 4,
+        marginTop: Spacing.xs,
         fontSize: 14,
     },
     emptyText: {
         textAlign: 'center',
-        marginTop: 40,
+        marginTop: Spacing.giant,
         fontSize: 16,
     },
     fab: {
         position: 'absolute',
-        right: 20,
-        bottom: 20,
+        right: Spacing.xl,
+        bottom: Spacing.xl,
         alignItems: 'center',
         justifyContent: 'center',
     },

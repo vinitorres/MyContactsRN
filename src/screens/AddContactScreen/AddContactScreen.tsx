@@ -1,11 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { ActivityIndicator, Button, KeyboardAvoidingView, Platform, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { ContactForm } from '@/components/ContactForm';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Colors } from '@/constants/theme';
+import { Colors, Sizes, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useAddContactViewModel } from './useAddContactViewModel';
 
@@ -36,7 +37,7 @@ export function AddContactScreen() {
             >
                 <Pressable onPress={(e) => e.stopPropagation()}>
                     <ThemedView
-                        style={[styles.sheet, { paddingBottom: insets.bottom + 20 }]}
+                        style={[styles.sheet, { paddingBottom: insets.bottom + Spacing.xl }]}
                         lightColor="#fff"
                         darkColor="#1c1c1e"
                     >
@@ -47,45 +48,20 @@ export function AddContactScreen() {
                         </ThemedText>
 
                         {isLoading ? (
-                            <ActivityIndicator size="large" color={Colors[colorScheme].tint} style={{ marginVertical: 40 }} />
+                            <ActivityIndicator size="large" color={Colors[colorScheme].tint} style={{ marginVertical: Spacing.giant }} />
                         ) : (
-                            <View style={styles.form}>
-                                <TextInput
-                                    placeholder={t('addContact.name')}
-                                    value={name}
-                                    onChangeText={setName}
-                                    style={[styles.input, { color: Colors[colorScheme].text, borderColor: Colors[colorScheme].icon }]}
-                                    placeholderTextColor={Colors[colorScheme].icon}
-                                    autoFocus={!isEditing}
-                                />
-                                <TextInput
-                                    placeholder={t('addContact.surname')}
-                                    value={surname}
-                                    onChangeText={setSurname}
-                                    style={[styles.input, { color: Colors[colorScheme].text, borderColor: Colors[colorScheme].icon }]}
-                                    placeholderTextColor={Colors[colorScheme].icon}
-                                />
-                                <TextInput
-                                    placeholder={t('addContact.phone')}
-                                    value={phone}
-                                    onChangeText={setPhone}
-                                    keyboardType="phone-pad"
-                                    style={[styles.input, { color: Colors[colorScheme].text, borderColor: Colors[colorScheme].icon }]}
-                                    placeholderTextColor={Colors[colorScheme].icon}
-                                />
-
-                                {isSaving ? (
-                                    <ActivityIndicator size="small" color={Colors[colorScheme].tint} style={{ marginTop: 10 }} />
-                                ) : (
-                                    <View style={styles.buttonContainer}>
-                                        <Button
-                                            title={isEditing ? t('addContact.update') : t('addContact.save')}
-                                            onPress={saveContact}
-                                            color={Colors[colorScheme].tint}
-                                        />
-                                    </View>
-                                )}
-                            </View>
+                            <ContactForm
+                                name={name}
+                                setName={setName}
+                                surname={surname}
+                                setSurname={setSurname}
+                                phone={phone}
+                                setPhone={setPhone}
+                                onSave={saveContact}
+                                isSaving={isSaving}
+                                isEditing={isEditing}
+                                autoFocus={!isEditing}
+                            />
                         )}
                     </ThemedView>
                 </Pressable>
@@ -104,36 +80,24 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     sheet: {
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        paddingHorizontal: 20,
-        paddingTop: 12,
+        borderTopLeftRadius: Sizes.borderRadius.xl,
+        borderTopRightRadius: Sizes.borderRadius.xl,
+        paddingHorizontal: Spacing.xl,
+        paddingTop: Spacing.md,
         width: '100%',
     },
     handle: {
-        width: 40,
+        width: Spacing.giant,
         height: 5,
         backgroundColor: '#ccc',
         borderRadius: 2.5,
         alignSelf: 'center',
-        marginBottom: 20,
+        marginBottom: Spacing.xl,
     },
     title: {
         textAlign: 'center',
-        marginBottom: 24,
+        marginBottom: Spacing.xxl,
     },
-    form: {
-        gap: 4,
-    },
-    input: {
-        height: 50,
-        borderWidth: 1,
-        borderRadius: 10,
-        paddingHorizontal: 16,
-        marginBottom: 12,
-        fontSize: 16,
-    },
-    buttonContainer: {
-        marginTop: 8,
-    }
 });
+
+export default AddContactScreen;
